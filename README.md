@@ -17,13 +17,13 @@ Luego activar el entorno virtual
 C:\> <venv>\Scripts\activate.bat
 ```
 
-Donde `<venv>` es el nombre del directorio donde se creo el entorno virtual.
-
 ### Ubuntu
 
 ```bash
-source .venv/bin/activate
+source <venv>/bin/activate"
 ```
+
+Donde `<venv>` es el nombre del directorio donde se creo el entorno virtual. Por ejemplo, si el directorio se encuentra en `/home/user/cookie-stealer`, entonces el comando seria `source /home/user/cookie-stealer/.venv/bin/activate`
 
 ## Ejecucion en Windows
 
