@@ -22,7 +22,7 @@ Donde `<venv>` es el nombre del directorio donde se creo el entorno virtual.
 ### Ubuntu
 
 ```bash
-source ./bin/activate
+source .venv/bin/activate
 ```
 
 ## Ejecucion en Windows
