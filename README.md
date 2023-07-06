@@ -1,7 +1,13 @@
 # Cookie Stealer
 
-Prueba de concepto de un Cookie Stealer en Python. Implementado para Google Chrome tanto para Windows como para Linux (
-Ubuntu).
+Prueba de concepto de un Cookie Stealer en Python. Implementado para Google Chrome tanto para Windows como para Linux (Ubuntu).
+
+
+## Requisitos
+
+- Windows 10 (22H2); Ubuntu 22.04 o superior; Kali (2021.1 o superior).
+- Python 3.5 o superior.
+- [pip](https://pip.pypa.io/en/stable/installation/) para la instalación de dependencias.
 
 ## Creacion de entorno virtual
 
