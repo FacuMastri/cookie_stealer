@@ -18,18 +18,18 @@ def get_chrome_datetime(chromedate: str) -> Union[str, datetime]:
         return datetime(1601, 1, 1) + timedelta(microseconds=int(chromedate))
 
 
-def get_encrypted_cookies(path_to_db: str) -> list:
+def get_encrypted_cookies(db_path: str) -> list:
     """
     Get the encrypted cookies from the Chrome SQLite database
     """
     cookies = []
-    db = sqlite3.connect(path_to_db)
+    db = sqlite3.connect(db_path)
     cursor = db.cursor()
     cursor.execute('SELECT host_key, path, is_secure, expires_utc, name, value, encrypted_value FROM cookies')
-    for host_key, path_to_db, is_secure, expires_utc, cookie_key, value, encrypted_value in cursor.fetchall():
+    for host_key, path, is_secure, expires_utc, cookie_key, value, encrypted_value in cursor.fetchall():
         cookie = {}
         cookie['host_key'] = host_key
-        cookie['path'] = path_to_db
+        cookie['path'] = path
         cookie['value'] = value
         cookie['name'] = cookie_key
         cookie['is_secure'] = is_secure
@@ -125,7 +125,7 @@ def print_cookies(cookies: list[dict]) -> None:
 
 def main():
     encryption_key = get_encryption_key()
-    user_name = os.environ.get('USERNAME')
+    user_name = os.environ.get('USERNAME') or os.environ.get('USER')
     chrome_cookies_path = f'/home/{user_name}/.config/google-chrome/Default/Cookies'
     encrypted_cookies = get_encrypted_cookies(chrome_cookies_path)
     decrypted_cookies = decrypt_cookies(encrypted_cookies, encryption_key)
